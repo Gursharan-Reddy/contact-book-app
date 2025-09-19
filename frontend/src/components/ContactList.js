@@ -6,8 +6,11 @@ function ContactList({ contacts, onDelete }) {
     alert(`Edit functionality for contact ID ${id} is not yet implemented.`);
   };
 
-  // Generates a unique, consistent avatar for each contact
-  const getProfileImage = (id) => `https://i.pravatar.cc/50?u=${id}`;
+  // Generates a unique, illustrated avatar based on the contact's name.
+  // This uses the DiceBear API with the "personas" style, which matches your image.
+  const getProfileImage = (name) => {
+    return `https://api.dicebear.com/8.x/personas/svg?seed=${encodeURIComponent(name)}`;
+  };
 
   return (
     <div className="contact-list">
@@ -15,7 +18,7 @@ function ContactList({ contacts, onDelete }) {
         <div key={contact.id} className="contact-item">
           <div className="contact-details">
             <img
-              src={getProfileImage(contact.id)}
+              src={getProfileImage(contact.name)} // This now creates the illustrated avatar
               alt="Profile"
               className="profile-avatar"
             />
