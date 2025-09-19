@@ -1,0 +1,141 @@
+/* Global styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main application container */
+.App {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Search bar styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.search-icon {
+  color: #888;
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+
+/* Contact list styles */
+.contact-list {
+  margin-top: 20px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-details p {
+  margin: 0;
+}
+
+.profile-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #555;
+  transition: color 0.2s ease-in-out;
+}
+
+.action-icon:hover {
+  color: #007bff; /* Blue hover for edit */
+}
+
+/* Specific hover color for the delete icon */
+.action-icon:last-child:hover {
+  color: #dc3545; /* Red hover for delete */
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+}
