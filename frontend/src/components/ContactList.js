@@ -6,8 +6,6 @@ function ContactList({ contacts, onDelete }) {
     alert(`Edit functionality for contact ID ${id} is not yet implemented.`);
   };
 
-  // Generates a unique, illustrated avatar based on the contact's name.
-  // This uses the DiceBear API with the "personas" style, which matches your image.
   const getProfileImage = (name) => {
     return `https://api.dicebear.com/8.x/personas/svg?seed=${encodeURIComponent(name)}`;
   };
@@ -18,7 +16,7 @@ function ContactList({ contacts, onDelete }) {
         <div key={contact.id} className="contact-item">
           <div className="contact-details">
             <img
-              src={getProfileImage(contact.name)} // This now creates the illustrated avatar
+              src={getProfileImage(contact.name)}
               alt="Profile"
               className="profile-avatar"
             />

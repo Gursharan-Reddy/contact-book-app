@@ -6,9 +6,6 @@ import ContactList from './components/ContactList';
 import Pagination from './components/Pagination';
 import { FaSearch } from 'react-icons/fa';
 
-// This line is crucial for deployment.
-// It tells the app to use the live Render URL when deployed on Vercel,
-// and 'http://localhost:5000' when running on your local computer.
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 function App() {
@@ -16,10 +13,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(true); // To show a loading state initially
-  const [error, setError] = useState(''); // To show fetch errors
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  // A single function to fetch contacts based on the current state
   const fetchContacts = () => {
     setLoading(true);
     setError('');
@@ -36,37 +32,32 @@ function App() {
       });
   };
 
-  // useEffect hook to fetch contacts when the page or search term changes
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       fetchContacts();
-    }, 500); // Debounce to prevent API calls on every keystroke
+    }, 500); 
 
     return () => clearTimeout(delayDebounce);
   }, [currentPage, searchTerm]);
 
 
-  // Handler to add a new contact and then refresh the list
   const handleAddContact = async (contact) => {
     try {
       await axios.post(`${API_URL}/contacts`, contact);
-      // After adding, go to page 1 to see the new contact
       if (currentPage !== 1) setCurrentPage(1);
-      else fetchContacts(); // Or just refetch if already on page 1
+      else fetchContacts(); 
     } catch (err) {
       console.error("Error adding contact:", err);
     }
   };
 
-  // Handler to delete a contact and then refresh the list
   const handleDeleteContact = async (id) => {
     try {
       await axios.delete(`${API_URL}/contacts/${id}`);
-      // If the last item on a page is deleted, go to the previous page
       if (contacts.length === 1 && currentPage > 1) {
         setCurrentPage(currentPage - 1);
       } else {
-        fetchContacts(); // Otherwise, just refresh the current page
+        fetchContacts(); 
       }
     } catch (err) {
       console.error("Error deleting contact:", err);

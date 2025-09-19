@@ -1,21 +1,13 @@
-// --- Imports ---
 const express = require('express');
 const cors = require('cors');
 const db = require('./database');
 
-// --- Initialization ---
 const app = express();
 const PORT = 5000;
 
-// --- Middleware ---
-// Using the simpler, general CORS setup is more robust for this case.
 app.use(cors()); 
 app.use(express.json());
 
-// --- API Endpoints ---
-
-// ** NEW HEALTH CHECK ROUTE **
-// This route helps us easily test if the server is live.
 app.get('/', (req, res) => {
   res.send('Contact Book API is live and running!');
 });
@@ -80,7 +72,6 @@ app.delete('/contacts/:id', (req, res) => {
   });
 });
 
-// --- Server Listener ---
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

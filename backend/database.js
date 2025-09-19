@@ -7,7 +7,6 @@ const db = new sqlite3.Database('./contacts.db', (err) => {
 });
 
 db.serialize(() => {
-  // Create the contacts table if it doesn't exist
   const createTableSql = `
     CREATE TABLE IF NOT EXISTS contacts (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,7 +17,6 @@ db.serialize(() => {
   `;
   db.run(createTableSql);
 
-  // Check if the table is empty before inserting initial data
   const checkSql = `SELECT COUNT(*) as count FROM contacts`;
   db.get(checkSql, (err, row) => {
     if (err) {
@@ -26,7 +24,6 @@ db.serialize(() => {
       return;
     }
 
-    // If the table is empty (count is 0), insert the sample data
     if (row.count === 0) {
       console.log('Contacts table is empty, seeding with initial data...');
       const sampleContacts = [

@@ -1,4 +1,3 @@
-/* Global styles */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: #f4f4f4;
@@ -6,7 +5,6 @@ body {
   padding: 0;
 }
 
-/* Main application container */
 .App {
   max-width: 800px;
   margin: 40px auto;
@@ -20,7 +18,6 @@ h1 {
   text-align: center;
 }
 
-/* Form styles */
 form {
   display: flex;
   gap: 10px;
@@ -50,7 +47,6 @@ form button {
   text-align: center;
 }
 
-/* Search bar styles */
 .search-container {
   display: flex;
   align-items: center;
@@ -73,7 +69,6 @@ form button {
   font-size: 1em;
 }
 
-/* Contact list styles */
 .contact-list {
   margin-top: 20px;
 }
@@ -99,7 +94,7 @@ form button {
 .profile-avatar {
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* Makes the image circular */
+  border-radius: 50%; 
   object-fit: cover;
 }
 
@@ -116,15 +111,13 @@ form button {
 }
 
 .action-icon:hover {
-  color: #007bff; /* Blue hover for edit */
+  color: #007bff;
 }
 
-/* Specific hover color for the delete icon */
 .action-icon:last-child:hover {
-  color: #dc3545; /* Red hover for delete */
+  color: #dc3545;
 }
 
-/* Pagination styles */
 .pagination {
   display: flex;
   justify-content: center;
@@ -133,7 +126,6 @@ form button {
   margin-top: 20px;
 }
 
-/* Responsive styles for mobile */
 @media (max-width: 600px) {
   form {
     flex-direction: column;
